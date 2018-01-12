@@ -1,5 +1,5 @@
 if screen.count() > 1 and screen[1].geometry.width ~= "1920" then
-   screen[1]:swap(screen[2])
+--   screen[1]:swap(screen[2])
 end
 
 --awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, screen[1], awful.layout.layouts[1])

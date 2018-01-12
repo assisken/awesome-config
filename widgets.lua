@@ -25,7 +25,7 @@ w.mem = lain.widget.mem {
 
 w.net = lain.widget.net {
    timeout = 2,
-   iface = "enp3s0",
+   iface = "enp0s6",
    settings = function()
       widget:set_markup(
          "NET in-["..
