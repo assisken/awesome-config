@@ -12,11 +12,11 @@ beautiful     = require("beautiful") -- Theme handling library
 menubar       = require("menubar")
 hotkeys_popup = require("awful.hotkeys_popup").widget
 naughty       = require("naughty")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 require("awful.autofocus")
-
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init("/home/assisken/.config/awesome/themes/default/theme.lua")
@@ -25,9 +25,9 @@ beautiful.init("/home/assisken/.config/awesome/themes/default/theme.lua")
 func  = require("functions")
 theme = require("themes/"..theme_name.."/theme")
 require("keyboard")
-require("screens")
 require("notifications")
 hostname = io.popen("uname -n"):read()
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -112,7 +112,7 @@ clientbuttons = gears.table.join(
     awful.button({ modkey }, 1, awful.mouse.client.move),
     awful.button({ modkey }, 3, awful.mouse.client.resize))
 
+require("screen_init")
+require("autorun")
 require("rules")
 require("signals")
-require("autorun")
-require("widget_init")

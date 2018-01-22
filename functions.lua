@@ -37,15 +37,17 @@ func.notify = function(text, data)
    -- Idk how to get theme from beautiful, pls help me D:
    --local theme = beautiful.get()
    data = data or {}
-   
+   if text then
+      data.text = ""..text
+   elseif text == nil then
+      data.text = "nil"
+   elseif text == false then
+      data.text = "false"
+   end
    data.status = data.status or "normal"
    data.icon   = data.icon or "\"\""
    data.app    = "awesome"
-   
-   awful.spawn("notify-send test "..text..
-                  " -u "..data.status..
-                  " -i "..data.icon..
-                  " -a "..data.app)
+   naughty.notify(data)
 end
 
 func.pipe = function(value, max)
@@ -74,11 +76,23 @@ func.color = function(percent)
    end
 end
 
+func.rev_color = function(percent)
+   if percent < 20 then
+      return "#ff0000"
+   elseif percent < 50 then
+      return "#ffff00"
+   else
+      return "#00ff00"
+   end
+end
+
 func.fill_colors = function(colors)
+   local rev = colors.rev or false
    local max = colors.max or 10
    local color = colors
    local color_count = #color
    local prev = 1
+ 
    if color_count < max then
       for i = color_count+1, max do
          color[i] = color[prev]

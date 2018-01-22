@@ -18,6 +18,7 @@ awful.rules.rules = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
+          "chromium (/home/assisken/apps/kancolle_chromium)",
         },
         class = {
           "Arandr",
@@ -29,7 +30,8 @@ awful.rules.rules = {
           "pinentry",
           "veromix",
           "xtightvncviewer",
-        "Orage"},
+          "Orage",
+        },
 
         name = {
           "Event Tester",  -- xev.

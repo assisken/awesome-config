@@ -11,6 +11,9 @@ client.connect_signal("manage", function (c)
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
     end
+    if c.maximized then
+       c.border_width = 0
+    end    
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
@@ -63,10 +66,16 @@ client.connect_signal("mouse::enter", function(c)
     end
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("focus", function(c)
+                         c.border_color = beautiful.border_focus
+                         if c.maximized then
+                            c.border_width = 0
+                         end
+
+end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
 mytextclock:connect_signal("button::press", function(lx, ly, button, mods, find_widgets_result)
-                              awful.spawn("orage -t")                              
+   awful.spawn("orage -t")                              
 end)

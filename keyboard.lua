@@ -143,6 +143,34 @@ local globalkeys = gears.table.join(
    
    add("destroy notification", "Ctrl-space", function()
           func.notify(#naughty.notifications)
+   end),
+
+   --bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+   --bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+   --bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+   --# Sreen brightness controls
+   --bindsym XF86MonBrightnessUp exec xbacklight -inc 1 # increase screen brightness
+   --bindsym XF86MonBrightnessDown exec xbacklight -dec 1 # decrease screen brightness
+
+   add("laptop: increase sound volume", "XF86AudioRaiseVolume", function()
+          awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")
+   end),
+   add("laptop: decrease sound volume", "XF86AudioLowerVolume", function()
+          awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")
+   end),
+   add("laptop: mute sound", "XF86AudioMute", function()
+          awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+   end),
+   
+   add("laptop: inclrease brightness", "XF86MonBrightnessUp", function()
+          awful.spawn("xbacklight -inc 1")
+   end),
+   add("laptop: declrease brightness", "XF86MonBrightnessDown", function()
+          awful.spawn("xbacklight -dec 1")
+   end),
+
+   add("kills focused window", "Control-Mod1-k", function()
+          func.exec("killapp")
    end)
 )
 

@@ -30,7 +30,7 @@ w.net = lain.widget.net {
       widget:set_markup(
          "NET in-["..
             markup.fontfg(theme.font, func.color(net_now.received/100), func.pipe(net_now.received/100))..
-            "] out-["..
+            "] out-\n["..
             markup.fontfg(theme.font, func.color(net_now.sent/100), func.pipe(net_now.sent/100))..
             "] "
       )
@@ -102,27 +102,17 @@ w.fs_home = lain.widget.fs {
 }
 
 -- Battery
---local baticon = wibox.widget.imagebox(theme.widget_battery)
---local bat = lain.widget.bat({
---    settings = function()
---        if bat_now.status ~= "N/A" then
---            if bat_now.ac_status == 1 then
---                widget:set_markup(markup.font(theme.font, " AC "))
---                baticon:set_image(theme.widget_ac)
---                return
---            elseif not bat_now.perc and tonumber(bat_now.perc) <= 5 then
---                baticon:set_image(theme.widget_battery_empty)
---            elseif not bat_now.perc and tonumber(bat_now.perc) <= 15 then
---                baticon:set_image(theme.widget_battery_low)
---            else
---                baticon:set_image(theme.widget_battery)
---            end
---            widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
---        else
---            widget:set_markup()
---            baticon:set_image(theme.widget_ac)
---        end
---    end
---})
+w.bat = lain.widget.bat {
+   timeout = 2,
+   settings = function()
+      if bat_now.status ~= "N/A" then
+         widget:set_markup(
+            "BAT ["..
+               markup.fontfg(theme.font, func.rev_color(bat_now.perc), func.pipe(bat_now.perc))..
+               "]"
+         )
+      end
+   end
+}
 
 return w
