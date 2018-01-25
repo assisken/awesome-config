@@ -62,10 +62,11 @@ local tasklist_buttons = gears.table.join(
 end))
 
 awful.screen.connect_for_each_screen(function (s)
-      if s.index == 1 then
-         screen2(s)
-      elseif s.index == 2 then
+      local width = s.geometry.width
+      if width == 1920 then
          screen1(s)
+      elseif width == 1366 then
+         screen2(s)
       else
          default_screen(s)
       end

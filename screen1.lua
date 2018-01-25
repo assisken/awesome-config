@@ -15,7 +15,7 @@ local color1 = func.fill_colors {
 }
 
 function screen1(s)
-   awful.tag({ "", "2", "3", "4", "5", "6", "7", "8", "Kancolle" }, s, awful.layout.layouts[1])
+   awful.tag({ "", "", "", "4", "5", "6", "7", "8", "Kancolle" }, s, awful.layout.layouts[1])
    
    -- Create a promptbox for each screen
    s.mypromptbox = awful.widget.prompt()
