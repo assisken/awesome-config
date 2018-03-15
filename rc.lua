@@ -27,6 +27,7 @@ theme = require("themes/"..theme_name.."/theme")
 require("keyboard")
 require("notifications")
 hostname = io.popen("uname -n"):read()
+naughty.config.defaults['icon_size'] = 40
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to

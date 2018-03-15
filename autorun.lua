@@ -7,7 +7,9 @@ func.run({
       "yandex-disk start",
       "dunst",
 --      "deluge-gtk",
-      "xxkb"
+      "xxkb",
+      "telegram",
+      "discord-ptb"
 })
 
 --exec "xrandr --output HDMI-0 --auto --left-of DVI-1"

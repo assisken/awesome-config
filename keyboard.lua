@@ -7,27 +7,27 @@ local globalkeys = gears.table.join(
    add("tag: view previous", modkey.."-Left", awful.tag.viewprev),
    add("tag: view next",modkey.."-Right", awful.tag.viewnext),
    add("tag: go back", modkey.."-Escape", awful.tag.history.restore),
-   add("client: focus next by index", modkey.."-j", function()
+   add("client: focus next by index", modkey.."-w", function()
           awful.client.focus.byidx(-1)
    end),
-   add("client: focus previous by index", modkey.."-k", function()
+   add("client: focus previous by index", modkey.."-e", function()
           awful.client.focus.byidx(1)
    end),
-   add("awesome: show main menu", modkey.."-w", function()
+   add("awesome: show main menu", modkey.."-u", function()
           mymainmenu:show()
    end),
 
     -- Layout manipulation
-   add("client: swap with next client by index", modkey.."-Shift-j", function()
+   add("client: swap with next client by index", modkey.."-Shift-w", function()
           awful.client.swap.byidx(-1)
    end),
-   add("client: swap with previous client by index", modkey.."-Shift-k", function()
+   add("client: swap with previous client by index", modkey.."-Shift-e", function()
           awful.client.swap.byidx(1)
    end),
-   add("screen: focus the next screen", modkey.."-Control-j", function()
+   add("screen: focus the next screen", modkey.."-Control-w", function()
           awful.screen.focus_relative(1)
    end),
-   add("screen: focus the previous screen", modkey.."-Control-k", function()
+   add("screen: focus the previous screen", modkey.."-Control-e", function()
           awful.screen.focus_relative(-1)
    end),
    add("client: jump to urgent client", modkey.."-u", awful.client.jumpto),
@@ -169,7 +169,7 @@ local globalkeys = gears.table.join(
           awful.spawn("xbacklight -dec 1")
    end),
 
-   add("kills focused window", "Control-Mod1-k", function()
+   add("kills focused window", "Control-Shift-k", function()
           func.exec("killapp")
    end)
 )
