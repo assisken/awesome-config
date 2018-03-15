@@ -1,8 +1,7 @@
 require("default_screen")
-require("screen1")
-require("screen2")
+require("screen_fullhd")
+require("screen_laptop")
 
--- {{{ Helper functions
 local function client_menu_toggle_fn()
     local instance = nil
 
@@ -15,10 +14,7 @@ local function client_menu_toggle_fn()
         end
     end
 end
--- }}}
 
-
--- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
    awful.button({ }, 1, function(t) t:view_only() end),
    awful.button({ modkey }, 1, function(t)
@@ -64,9 +60,9 @@ end))
 awful.screen.connect_for_each_screen(function (s)
       local width = s.geometry.width
       if width == 1920 then
-         screen1(s)
+         screen_fullhd(s)
       elseif width == 1366 then
-         screen2(s)
+         screen_laptop(s)
       else
          default_screen(s)
       end

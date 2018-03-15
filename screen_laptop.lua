@@ -14,8 +14,8 @@ local color1 = func.fill_colors {
    theme.bg_normal,
 }
 
-function screen2(s)
-   awful.tag({ "", "", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+function screen_laptop(s)
+   awful.tag({ "", "", "", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
     
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()

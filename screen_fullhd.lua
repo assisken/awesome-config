@@ -14,7 +14,7 @@ local color1 = func.fill_colors {
    theme.bg_normal,
 }
 
-function screen1(s)
+function screen_fullhd(s)
    awful.tag({ "", "", "", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
    
    -- Create a promptbox for each screen
