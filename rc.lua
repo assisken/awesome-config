@@ -28,6 +28,7 @@ require("keyboard")
 require("notifications")
 hostname = io.popen("uname -n"):read()
 naughty.config.defaults['icon_size'] = 40
+--local appmenu = require("awesome-appmenu")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -81,10 +82,13 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end}
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+mymainmenu = awful.menu({
+    items = {
+--        { "all", appmenu.Appmenu },
+        { "awesome", myawesomemenu, beautiful.awesome_icon },
+        { "open terminal", terminal }
+    }
+})
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })

@@ -15,7 +15,7 @@ local color1 = func.fill_colors {
 }
 
 function screen_fullhd(s)
-   awful.tag({ "", "", "", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+   awful.tag({ "", "", "", "", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
    
    -- Create a promptbox for each screen
    s.mypromptbox = awful.widget.prompt()

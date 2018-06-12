@@ -81,25 +81,25 @@ w.temp = lain.widget.temp {
    end
 }
 
-w.fs_root = lain.widget.fs {
-   timeout = 2,
-   options  = "--exclude-type=tmpfs",
-   partition = "/",
-   notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = theme.monospace },
-   settings = function()
-      widget:set_markup(markup.font(theme.font, "/ "..fs_now.available_gb.." GB "))
-   end
-}
-
-w.fs_home = lain.widget.fs {
-   timeout = 2,
-   options  = "--exclude-type=tmpfs",
-   partition = "/home",
-   notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = theme.monospace },
-   settings = function()
-      widget:set_markup(markup.font(theme.font, "/home "..fs_now.available_gb.." GB "))
-   end
-}
+--w.fs_root = lain.widget.fs {
+--   timeout = 2,
+--   options  = "--exclude-type=tmpfs",
+--   partition = "/",
+--   notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = theme.monospace },
+--   settings = function()
+--      widget:set_markup(markup.font(theme.font, "/ "..fs_now.available_gb.." GB "))
+--   end
+--}
+--
+--w.fs_home = lain.widget.fs {
+--   timeout = 2,
+--   options  = "--exclude-type=tmpfs",
+--   partition = "/home",
+--   notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = theme.monospace },
+--   settings = function()
+--      widget:set_markup(markup.font(theme.font, "/home "..fs_now.available_gb.." GB "))
+--   end
+--}
 
 -- Battery
 w.bat = lain.widget.bat {

@@ -31,6 +31,9 @@ awful.rules.rules = {
           "veromix",
           "xtightvncviewer",
           "Orage",
+          "File-roller",
+          "Nemo",
+          "Pavucontrol",
         },
 
         name = {
