@@ -6,7 +6,7 @@ editor_cmd    = terminal .. " -e " .. editor
 
 gears         = require("gears") -- Standard awesome library
 awful         = require("awful")
-lain          = require("lain")
+local lain          = require("lain")
 wibox         = require("wibox") -- Widget and layout library
 beautiful     = require("beautiful") -- Theme handling library
 menubar       = require("menubar")

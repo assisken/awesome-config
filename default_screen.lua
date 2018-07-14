@@ -1,4 +1,5 @@
 local my_widget  = require("widgets")
+local lain = require('lain')
 -- Shotcuts
 local horizontal = wibox.layout.align.horizontal
 local fhorizontal = wibox.layout.fixed.horizontal
@@ -16,7 +17,7 @@ local color1 = func.fill_colors {
 
 function default_screen(s)
    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-    
+
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -29,13 +30,13 @@ function default_screen(s)
                                      awful.button({ }, 5, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
-    
+
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
-    
+
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
-    
+
     -- Add widgets to the wibox
     s.mywibox:setup
     {
