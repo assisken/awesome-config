@@ -17,7 +17,7 @@ func.add_key = function(name, keycombo, func)
       desc = name
       gr = "custom keys"
    end
-   
+
    local key_table = keycombo:split("-")
    local key = table.remove(key_table, #key_table)
    return awful.key(key_table, key, func, {description=desc, group=gr})
@@ -92,7 +92,7 @@ func.fill_colors = function(colors)
    local color = colors
    local color_count = #color
    local prev = 1
- 
+
    if color_count < max then
       for i = color_count+1, max do
          color[i] = color[prev]

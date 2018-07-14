@@ -131,14 +131,14 @@ local globalkeys = gears.table.join(
           end
    end),
 
-   add("window screenshot", "Print", function()
-          awful.spawn.with_shell("screenshot -u")
-   end),
+--   add("window screenshot", "Print", function()
+--          awful.spawn.with_shell("screenshot -u")
+--   end),
    add("fullscreen screenshot", "Shift-Print", function()
           awful.spawn.with_shell("screenshot")
    end),
-   add("region screenshot", "Ctrl-Print", function()
-          awful.spawn.with_shell("sleep 0.5 && screenshot -s")
+   add("region screenshot", "Print", function()
+          awful.spawn.with_shell("screenshot -s")
    end),
    
    --bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume

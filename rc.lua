@@ -1,4 +1,4 @@
-modkey = "Mod4"
+modkey        = "Mod4"
 theme_name    = "default"
 terminal      = "xfce4-terminal"
 editor        = os.getenv("EDITOR") or "nano"
@@ -13,13 +13,15 @@ menubar       = require("menubar")
 hotkeys_popup = require("awful.hotkeys_popup").widget
 naughty       = require("naughty")
 
+config_dir    = gears.filesystem.get_configuration_dir()
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 require("awful.autofocus")
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init("/home/assisken/.config/awesome/themes/default/theme.lua")
+beautiful.init(config_dir.."/themes/default/theme.lua")
 
 -- Custom libs
 func  = require("functions")
@@ -28,7 +30,6 @@ require("keyboard")
 require("notifications")
 hostname = io.popen("uname -n"):read()
 naughty.config.defaults['icon_size'] = 40
---local appmenu = require("awesome-appmenu")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -53,7 +54,6 @@ do
         in_error = false
     end)
 end
--- }}}
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -70,9 +70,8 @@ awful.layout.layouts = {
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
 }
--- }}}
 
--- {{{ Menu
+-- Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
    { "hotkeys", function() return false, hotkeys_popup.show_help end},
@@ -84,7 +83,6 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({
     items = {
---        { "all", appmenu.Appmenu },
         { "awesome", myawesomemenu, beautiful.awesome_icon },
         { "open terminal", terminal }
     }
@@ -95,22 +93,20 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ Wibar
+-- Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock("%d-%m-%y (%a) %H:%M")
 
--- {{{ Mouse bindings
+-- Mouse bindings
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
--- }}}
 
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),

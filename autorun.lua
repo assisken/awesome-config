@@ -1,5 +1,5 @@
 func.run({
-      "xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1",
+--      "xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1",
       "nm-applet",
       "lxpolkit",
       "~/.fehbg",
@@ -8,6 +8,6 @@ func.run({
       "dunst",
 --      "deluge-gtk",
       "xxkb",
-      "telegram",
-      "discord-ptb"
+--      "telegram",
+--      "discord-ptb"
 })
