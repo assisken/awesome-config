@@ -20,20 +20,20 @@ local widget = function(timeout)
       awful.spawn("pavucontrol")
     end),
     awful.button({}, 2, function() -- middle click
-      awful.spawn(string.format("pactl set-sink-volume %d 100%%", w.pulse.device))
-      w.pulse.update()
+      awful.spawn(string.format("pactl set-sink-volume %d 100%%", out.device))
+      out.update()
     end),
     awful.button({}, 3, function() -- right click
-      awful.spawn(string.format("pactl set-sink-mute %d toggle", w.pulse.device))
-      w.pulse.update()
+      awful.spawn(string.format("pactl set-sink-mute %d toggle", out.device))
+      out.update()
     end),
     awful.button({}, 4, function() -- scroll up
-      awful.spawn(string.format("pactl set-sink-volume %d +5%%", w.pulse.device))
-      w.pulse.update()
+      awful.spawn(string.format("pactl set-sink-volume %d +5%%", out.device))
+      out.update()
     end),
     awful.button({}, 5, function() -- scroll down
-      awful.spawn(string.format("pactl set-sink-volume %d -5%%", w.pulse.device))
-      w.pulse.update()
+      awful.spawn(string.format("pactl set-sink-volume %d -5%%", out.device))
+      out.update()
     end)
   ))
   return out
