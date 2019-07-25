@@ -1,6 +1,4 @@
 require("default_screen")
-require("screen_fullhd")
-require("screen_laptop")
 
 local function client_menu_toggle_fn()
     local instance = nil
@@ -57,14 +55,7 @@ local tasklist_buttons = gears.table.join(
          awful.client.focus.byidx(-1)
 end))
 
-awful.screen.connect_for_each_screen(function (s)
-      local width = s.geometry.width
-      if width == 1920 then
-         screen_fullhd(s)
-      elseif width == 1366 then
-         screen_laptop(s)
-      else
-         default_screen(s)
-      end
-end)
 
+awful.screen.connect_for_each_screen(function (s)
+   default_screen(s)
+end)

@@ -6,7 +6,7 @@ editor_cmd    = terminal .. " -e " .. editor
 
 gears         = require("gears") -- Standard awesome library
 awful         = require("awful")
-local lain          = require("lain")
+local lain    = require("lain")
 wibox         = require("wibox") -- Widget and layout library
 beautiful     = require("beautiful") -- Theme handling library
 menubar       = require("menubar")
@@ -114,6 +114,5 @@ clientbuttons = gears.table.join(
     awful.button({ modkey }, 3, awful.mouse.client.resize))
 
 require("screen_init")
-require("autorun")
 require("rules")
 require("signals")

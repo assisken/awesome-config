@@ -43,7 +43,7 @@ local globalkeys = gears.table.join(
           awful.spawn(terminal)
    end),
    add("awesome: reload awesome", modkey.."-Shift-r", awesome.restart),
-   add("awesome: exit awesome", modkey.."-Shift-e", awesome.quit),
+   -- add("awesome: exit awesome", modkey.."Ctrl-Shift-e", awesome.quit),
 
    add("layout: increase master width factor", modkey.."-l", function()
           awful.tag.incmwfact(0.05)
@@ -91,7 +91,7 @@ local globalkeys = gears.table.join(
              history_path = awful.util.get_cache_dir().."/history_eval"
           }
    end),
-   
+
    -- Menubar
    add("launcher: show the menubar", modkey.."-p", function()
           menubar.show()
@@ -135,12 +135,12 @@ local globalkeys = gears.table.join(
 --          awful.spawn.with_shell("screenshot -u")
 --   end),
    add("fullscreen screenshot", "Shift-Print", function()
-          awful.spawn.with_shell("screenshot")
+          awful.spawn.with_shell("~/.bin/screenshot")
    end),
    add("region screenshot", "Print", function()
-          awful.spawn.with_shell("screenshot -s")
+          awful.spawn.with_shell("~/.bin/screenshot -s")
    end),
-   
+
    --bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
    --bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
    --bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
@@ -157,7 +157,7 @@ local globalkeys = gears.table.join(
    add("laptop: mute sound", "XF86AudioMute", function()
           awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
    end),
-   
+
    add("laptop: inclrease brightness", "XF86MonBrightnessUp", function()
           awful.spawn("xbacklight -inc 1")
    end),
