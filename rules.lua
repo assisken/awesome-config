@@ -53,14 +53,9 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 
-    { rule = { class = "Plank" },
+    { rule = { class = "Xfce4-panel" },
         properties = {
             border_width = 0,
-            floating = true,
-            sticky = true,
-            ontop = true,
-            focusable = false,
-            below = false
         }
     }
 }

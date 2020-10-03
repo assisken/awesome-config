@@ -1,9 +1,16 @@
 -- Key bindings
-modkey = "Mod4"
-local add = func.add_key
+local modkey = "Mod4"
+local alt    = "Mod1"
+local add    = func.add_key
+local xrandr = require("xrandr")
 
 local globalkeys = gears.table.join(
    add("awesome: show help", modkey.."-/", hotkeys_popup.show_help),
+
+   add("screen: xrandr help", modkey.."-x", function()
+        xrandr.xrandr()
+   end),
+
    add("tag: view previous", modkey.."-Left", awful.tag.viewprev),
    add("tag: view next",modkey.."-Right", awful.tag.viewnext),
    add("tag: go back", modkey.."-Escape", awful.tag.history.restore),
@@ -42,7 +49,9 @@ local globalkeys = gears.table.join(
    add("launcher: open a terminal", modkey.."-Return", function()
           awful.spawn(terminal)
    end),
-   add("awesome: reload awesome", modkey.."-Shift-r", awesome.restart),
+   add("awesome: reload awesome", modkey.."-Shift-r", function()
+          awesome.restart()
+   end),
    -- add("awesome: exit awesome", modkey.."Ctrl-Shift-e", awesome.quit),
 
    add("layout: increase master width factor", modkey.."-l", function()
@@ -80,9 +89,9 @@ local globalkeys = gears.table.join(
    end),
 
    -- Prompt
-   add("launcher: run prompt", modkey.."-r", function()
-          awful.screen.focused().mypromptbox:run()
-   end),
+   -- add("launcher: run prompt", modkey.."-r", function()
+   --        awful.screen.focused().mypromptbox:run()
+   -- end),
    add("awesome: lua execute prompt", modkey.."-x", function()
           awful.prompt.run {
              prompt       = "Execute Lua code: ",
@@ -98,11 +107,11 @@ local globalkeys = gears.table.join(
    end),
 
    -- Custom apps
-   add("applications: xfce4-appfinder", modkey.."-q", function()
-          awful.spawn("xfce4-appfinder --collapsed",
-                      { floating = true,
-                        tag = mouse.screen.selected_tag,
-                        placement = awful.placement.centered })
+   add("applications: run command", modkey.."-r", function()
+       awful.spawn("rofi -show run")
+   end),
+   add("applications: run desktop app", modkey.."-d", function()
+          awful.spawn("rofi -show drun")
    end),
 
    add("move to previous screen", modkey.."-Shift-Ctrl-w", function()

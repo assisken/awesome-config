@@ -1,6 +1,6 @@
 modkey        = "Mod4"
 theme_name    = "default"
-terminal      = "xfce4-terminal"
+terminal      = "guake"
 editor        = os.getenv("EDITOR") or "nano"
 editor_cmd    = terminal .. " -e " .. editor
 
